@@ -16,8 +16,7 @@ var specialCharacters = [
     ']',
     '{',
     '}',
-    '\',
-    '~',
+    '\\',
     '+',
     '?',
     ',',
@@ -163,7 +162,12 @@ function getPasswordOptions(){
     return passwordOptions;
 }
 
-
+//function for get an random element from an array
+function generatePassword() {
+    var option = getPasswordOptions();
+// variable to store password as it being generated
+    var result = [];
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
