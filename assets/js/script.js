@@ -162,7 +162,7 @@ function getPasswordOptions(){
     return passwordOptions;
 }
 
-funtionm getRandom(arr) {
+function getRandom(arr) {
     var randIndex = Math.floor(Math.random() * arr.length);
     var randElement = arr[randIndex];
 
