@@ -111,8 +111,59 @@ function getPasswordOptions(){
         alert('password length must be provided as a NUMBER');
         return null;
     }
+    //cOntditional to check to make sure it is a numeber
+    if (length < 8) {
+        alert('password length must be at least 8 characters long');
+        return null;
+    }
+    //cOntditional to check to make sure it is a numeber
+    if (length > 128) {
+        alert('password length must be less than 129 characters');
+        return null;
+    }
+    //Variable to stroe boolean regarding special characters
+    var hasSpecialCharacters =confirm(
 
+        'click OK to confirm including Special Characters'
+    )
+    //Variable to stroe boolean regarding special characters
+    var hasNumericalCharacters =confirm(
+
+        'click OK to confirm including Numerical Characters'
+    )
+    //Variable to stroe boolean regarding special characters
+    var hasLowerCaseCharacters =confirm(
+
+        'click OK to confirm including Lower Case Characters'
+    )
+    //Variable to stroe boolean regarding special characters
+    var hasUpperCaseCharacters =confirm(
+
+        'click OK to confirm including Upper Case Characters'
+    )
+
+    // condition statement to check fact sum
+    if (
+        hasSpecialCharacters === false &&
+        hasNumericalCharacters === false &&
+        hasLowerCaseCharacters === false &&
+        hasUpperCaseCharacters === false
+    )   {
+        alert('Must select at least one character type');
+        return null;
+    }
+    var passwordOptions = {
+        length: length,
+        hasSpecialCharacters: hasSpecialCharacters,
+        hasNumericalCharacters: hasNumericalCharacters,
+        hasLowerCaseCharacters: hasLowerCaseCharacters,
+        hasUpperCaseCharacters: hasUpperCaseCharacters
+    };
+
+    return passwordOptions;
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
