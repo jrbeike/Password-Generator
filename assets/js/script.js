@@ -28,7 +28,7 @@ var specialCharacters = [
 ];
 
 // array of numerical characheters to be in password
-var numericCharaters = [
+var numericalCharaters = [
     '1',
     '2',
     '3',
@@ -39,7 +39,7 @@ var numericCharaters = [
     '8',
     '9',
     '0',
-]
+];
 
 // Array of letters to be in the password
 var lowerCasedCharacters = [
@@ -69,7 +69,7 @@ var lowerCasedCharacters = [
     'x',
     'y',
     'z',
-]
+];
 
 var upperCasedCharacters = [
     'A',
@@ -98,7 +98,7 @@ var upperCasedCharacters = [
     'X',
     'Y',
     'Z',
-]
+];
 
 // PROMPT FOR USER FOR PASSOWORD OPTIONS
 function getPasswordOptions(){
@@ -124,29 +124,29 @@ function getPasswordOptions(){
     var hasSpecialCharacters =confirm(
 
         'click OK to confirm including Special Characters'
-    )
+    );
     //Variable to stroe boolean regarding special characters
     var hasNumericalCharacters =confirm(
 
         'click OK to confirm including Numerical Characters'
-    )
+    );
     //Variable to stroe boolean regarding special characters
-    var hasLowerCaseCharacters =confirm(
+    var hasLowerCasedCharacters =confirm(
 
         'click OK to confirm including Lower Case Characters'
-    )
+    );
     //Variable to stroe boolean regarding special characters
-    var hasUpperCaseCharacters =confirm(
+    var hasUpperCasedCharacters =confirm(
 
         'click OK to confirm including Upper Case Characters'
-    )
+    );
 
     // condition statement to check fact sum
     if (
         hasSpecialCharacters === false &&
         hasNumericalCharacters === false &&
-        hasLowerCaseCharacters === false &&
-        hasUpperCaseCharacters === false
+        hasLowerCasedCharacters === false &&
+        hasUpperCasedCharacters === false
     )   {
         alert('Must select at least one character type');
         return null;
@@ -155,8 +155,14 @@ function getPasswordOptions(){
         length: length,
         hasSpecialCharacters: hasSpecialCharacters,
         hasNumericalCharacters: hasNumericalCharacters,
-        hasLowerCaseCharacters: hasLowerCaseCharacters,
-        hasUpperCaseCharacters: hasUpperCaseCharacters
+        haslowerCasedCharacters: haslowerCaseCharacters,
+        get haslowerCasedCharacters() {
+            return this.haslowerCasedCharacters;
+        },
+        set haslowerCasedCharacters(value) {
+            this.haslowerCasedCharacters = value;
+        },
+        hasUpperCasedCharacters: hasUpperCaseCharacters
     };
 
     return passwordOptions;
@@ -170,13 +176,15 @@ function getRandom(arr) {
 } 
 //function for get an random element from an array
 function generatePassword() {
-    var option = getPasswordOptions();
+    var options = getPasswordOptions();
 // variable to store password as it being generated
     var result = [];
     var possibleCharacters =[];
     var guaranteedCharacters =[];
+
     if (!options) return null;
 
+/// characters
     if (options.hasSpecialCharacters) {
         possibleCharacters = possibleCharacters.concat(specialCharacters);
         guaranteedCharacters.push(getRandom(specialCharacters));
@@ -185,14 +193,15 @@ function generatePassword() {
         possibleCharacters = possibleCharacters.concat(numericalCharacters);
         guaranteedCharacters.push(getRandom(numericalCharacters));
     }
-    if (options.hasLowerCaseCharacters) {
-        possibleCharacters = possibleCharacters.concat(lowercaseCharacters);
-        guaranteedCharacters.push(getRandom(lowerCaseCharacters));
+    if (options.hasLowerCasedCharacters) {
+        possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+        guaranteedCharacters.push(getRandom(lowerCasedCharacters));
     }
     if (options.hasUppercaseCharacters) {
-        possibleCharacters = possibleCharacters.concat(upperCaseCharacters);
-        guaranteedCharacters.push(getRandom(upperCaseCharacters));
+        possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+        guaranteedCharacters.push(getRandom(upperCasedCharacters));
     }
+
     for (var i= 0; i < options.length; i++) {
         var possibleCharacters = getRandom(possibleCharacters);
 
