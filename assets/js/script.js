@@ -28,7 +28,7 @@ var specialCharacters = [
 ];
 
 // array of numerical characheters to be in password
-var numericalCharaters = [
+var numericalCharacters = [
     '1',
     '2',
     '3',
@@ -155,14 +155,8 @@ function getPasswordOptions(){
         length: length,
         hasSpecialCharacters: hasSpecialCharacters,
         hasNumericalCharacters: hasNumericalCharacters,
-        haslowerCasedCharacters: haslowerCaseCharacters,
-        get haslowerCasedCharacters() {
-            return this.haslowerCasedCharacters;
-        },
-        set haslowerCasedCharacters(value) {
-            this.haslowerCasedCharacters = value;
-        },
-        hasUpperCasedCharacters: hasUpperCaseCharacters
+        haslowerCasedCharacters: hasLowerCasedCharacters,
+        hasUpperCasedCharacters: hasUpperCasedCharacters
     };
 
     return passwordOptions;
@@ -197,7 +191,7 @@ function generatePassword() {
         possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
         guaranteedCharacters.push(getRandom(lowerCasedCharacters));
     }
-    if (options.hasUppercaseCharacters) {
+    if (options.hasUppercasedCharacters) {
         possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
         guaranteedCharacters.push(getRandom(upperCasedCharacters));
     }
@@ -205,7 +199,7 @@ function generatePassword() {
     for (var i= 0; i < options.length; i++) {
         var possibleCharacters = getRandom(possibleCharacters);
 
-        result.push(possibleCharacters)
+        result.push(possibleCharacters);
     }
     for (var i= 0; i < guaranteedCharacters.length; i++) {
         result[i] = guaranteedCharacters[1];
