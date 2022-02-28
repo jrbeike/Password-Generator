@@ -4,10 +4,10 @@
 ![](assets/Screenshot%202022-02-27%20210554.png)
 
 ## Table of contents
-- [Description] (#description)
-- [Usage](#usage)
-- [Installation](#installation)
-- [Note](#note)
+  - [Description](#description)
+  - [Usage](#usage)
+  - [Installation](#installation)
+  - [Note](#note)
 
 ## Description
 
