@@ -1,7 +1,7 @@
 // Assignment code here
 
 // array of special characheter to be included in password. 
-var specialCharacters = [
+var SpecialCharacters = [
     '@',
     '!',
     '#',
@@ -28,7 +28,7 @@ var specialCharacters = [
 ];
 
 // array of numerical characheters to be in password
-var numericalCharacters = [
+var NumericalCharacters = [
     '1',
     '2',
     '3',
@@ -42,7 +42,7 @@ var numericalCharacters = [
 ];
 
 // Array of letters to be in the password
-var lowerCasedCharacters = [
+var LowerCasedCharacters = [
     'a',
     'b',
     'c',
@@ -71,7 +71,7 @@ var lowerCasedCharacters = [
     'z',
 ];
 
-var upperCasedCharacters = [
+var UpperCasedCharacters = [
     'A',
     'B',
     'C',
@@ -180,20 +180,20 @@ function generatePassword() {
 
 /// characters
     if (options.hasSpecialCharacters) {
-        possibleCharacters = possibleCharacters.concat(specialCharacters);
-        guaranteedCharacters.push(getRandom(specialCharacters));
+        possibleCharacters = possibleCharacters.concat(SpecialCharacters);
+        guaranteedCharacters.push(getRandom(SpecialCharacters));
     }
     if (options.hasNumericalCharacters) {
-        possibleCharacters = possibleCharacters.concat(numericalCharacters);
-        guaranteedCharacters.push(getRandom(numericalCharacters));
+        possibleCharacters = possibleCharacters.concat(NumericalCharacters);
+        guaranteedCharacters.push(getRandom(NumericalCharacters));
     }
-    if (options.hasLowerCasedCharacters) {
-        possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
-        guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+    if (options.haslowerCasedCharacters) {
+        possibleCharacters = possibleCharacters.concat(LowerCasedCharacters);
+        guaranteedCharacters.push(getRandom(LowerCasedCharacters));
     }
-    if (options.hasUppercasedCharacters) {
-        possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
-        guaranteedCharacters.push(getRandom(upperCasedCharacters));
+    if (options.hasUpperCasedCharacters) {
+        possibleCharacters = possibleCharacters.concat(UpperCasedCharacters);
+        guaranteedCharacters.push(getRandom(UpperCasedCharacters));
     }
 
     for (var i= 0; i < options.length; i++) {
@@ -202,7 +202,7 @@ function generatePassword() {
         result.push(possibleCharacters);
     }
     for (var i= 0; i < guaranteedCharacters.length; i++) {
-        result[i] = guaranteedCharacters[1];
+        result[i] = guaranteedCharacters[i];
     }
     return result.join('');
 }
